@@ -12,7 +12,6 @@ extension StringExtension on String {
   Widget toLabel({TextStyle? textStyle, TextAlign? textAlign}) => Label(this,textStyle: textStyle, textAlign: textAlign);
   Widget imageWidget({Color? color,double? width,double? height,BoxFit? boxFit}) => ImageWidget(path: this,color: color,width: width,height: height, boxFit: boxFit);
   Widget svgPictureWidget({Color? color,double? width,double? height}) => SvgPictureWidget(path: this,color: color,width: width,height: height);
-  String get localization => this;
 }
 
 

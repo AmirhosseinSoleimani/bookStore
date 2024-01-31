@@ -57,7 +57,6 @@ class LightAppThemeData extends AppThemeData {
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: colorTheme.darkThemePrimary,
-        selectedItemColor: colorTheme.darkThemeSecondary,
         unselectedItemColor: colorTheme.darkThemePrimaryLight,
         type: BottomNavigationBarType.fixed
       )

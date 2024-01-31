@@ -45,7 +45,11 @@ flutter:
           weight: 300
         - asset: assets/fonts/iransans_fa_ultralight.ttf
           weight: 200
-    - family: ocra
+    - family: "ocra"
       fonts:
         - asset: assets/fonts/ocra_regular.ttf
+          weight: 400
+    - family: "Lobster"
+      fonts:
+        - asset: assets/fonts/Lobster-Regular.ttf
           weight: 400

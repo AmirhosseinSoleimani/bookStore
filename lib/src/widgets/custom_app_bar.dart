@@ -15,7 +15,7 @@ AppBar customAppBar({required BuildContext context, String? title, IconData? ico
       child: Icon(
           iconData,
           size: AppSize.s28,
-          color: colorTheme?.darkThemeSecondary,
+          color: colorTheme?.primaryColor,
       ),
     ) : const SizedBox(),
     actions: actions,

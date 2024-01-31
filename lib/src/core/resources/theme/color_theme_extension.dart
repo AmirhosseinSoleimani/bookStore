@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class ColorThemeExtension
     extends ThemeExtension<ColorThemeExtension> {
-  final Color? colorHoloGreyPrimary,
-      darkThemeSecondary,
+  final Color? darkBrown,
+      primaryColor,
       colorSharpOrangeLight,
       colorSharpOrange2,
       colorSharpOrangeDarker,
@@ -17,11 +17,12 @@ class ColorThemeExtension
       darkThemeBoxBackgroundLight,
       colorGreyBox,
       whiteColor,
-      redColor;
+      redColor,
+      transparentColor;
 
   ColorThemeExtension(
-      {required this.colorHoloGreyPrimary,
-      required this.darkThemeSecondary,
+      {required this.darkBrown,
+      required this.primaryColor,
       required this.colorSharpOrangeLight,
       required this.colorSharpOrange2,
       required this.colorSharpOrangeDarker,
@@ -36,12 +37,13 @@ class ColorThemeExtension
       required this.colorGreyBox,
       required this.whiteColor,
       required this.redColor,
+      required this.transparentColor,
       });
 
   @override
   ColorThemeExtension copyWith(
-      {final Color? colorHoloGreyPrimary,
-      darkThemeSecondary,
+      {final Color? darkBrown,
+      primaryColor,
       colorSharpOrangeLight,
       colorSharpOrange2,
       colorSharpOrangeDarker,
@@ -55,10 +57,11 @@ class ColorThemeExtension
       darkThemeBoxBackgroundLight,
       colorGreyBox,
       redColor,
-      whiteColor}) {
+      whiteColor,
+      transparentColor,}) {
     return ColorThemeExtension(
-      colorHoloGreyPrimary: colorHoloGreyPrimary ?? this.colorHoloGreyPrimary,
-      darkThemeSecondary: darkThemeSecondary ?? this.darkThemeSecondary,
+      darkBrown: darkBrown ?? this.darkBrown,
+      primaryColor: primaryColor ?? this.primaryColor,
       colorSharpOrangeLight:
           colorSharpOrangeLight ?? this.colorSharpOrangeLight,
       colorSharpOrange2: colorSharpOrange2 ?? this.colorSharpOrange2,
@@ -78,12 +81,13 @@ class ColorThemeExtension
       darkThemeBoxBackground: darkThemeBoxBackground ?? this.darkThemeBoxBackground,
       darkThemeBoxBackgroundLight: darkThemeBoxBackgroundLight ?? this.darkThemeBoxBackgroundLight,
       redColor: redColor ?? this.redColor,
+      transparentColor: transparentColor ?? this.transparentColor
     );
   }
 
   factory ColorThemeExtension.light() => ColorThemeExtension(
-        colorHoloGreyPrimary: _convertColor('#464545'),
-        darkThemeSecondary: _convertColor('#FF6B00'),
+        darkBrown: _convertColor('#4A2B29'),
+        primaryColor: _convertColor('#EFE3C8'),
         colorSharpOrangeLight: _convertColor('#FD701D'),
         colorSharpOrange2: _convertColor('#FF4D00'),
         colorSharpOrangeDarker: _convertColor('#F2600A'),
@@ -97,7 +101,8 @@ class ColorThemeExtension
         darkThemeBoxBackgroundDark: _convertColor('#d6d6d6'),
         darkThemeBoxBackground: _convertColor('#e6e6e6'),
         darkThemeBoxBackgroundLight: _convertColor('#f5f5f5'),
-        redColor: _convertColor('#ff1414')
+        redColor: _convertColor('#ff1414'),
+        transparentColor: Colors.transparent,
       );
 
   static Color _convertColor(String hexCode) =>
@@ -111,9 +116,9 @@ class ColorThemeExtension
     }
 
     return ColorThemeExtension(
-      colorHoloGreyPrimary:
-          Color.lerp(colorHoloGreyPrimary, other.colorHoloGreyPrimary, t),
-      darkThemeSecondary: Color.lerp(darkThemeSecondary, other.darkThemeSecondary, t),
+      darkBrown:
+          Color.lerp(darkBrown, other.darkBrown, t),
+      primaryColor: Color.lerp(primaryColor, other.primaryColor, t),
       colorSharpOrangeLight:
           Color.lerp(colorSharpOrangeLight, other.colorSharpOrangeLight, t),
       colorSharpOrange2:
@@ -138,6 +143,8 @@ class ColorThemeExtension
           darkThemeBoxBackgroundLight, other.darkThemeBoxBackgroundLight, t),
       redColor: Color.lerp(
           redColor, other.redColor, t),
+      transparentColor: Color.lerp(
+          transparentColor, other.transparentColor, t),
     );
   }
 }

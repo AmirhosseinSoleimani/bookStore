@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 class FontConstants{
   static const String fontFamily = 'iransans_en';
   static const String fontFamilyPersian = 'iransans_fa';
+  static const String ocraFontFamily = 'ocra';
+  static const String lobsterFontFamily = 'Lobster';
 }
 
 class FontWeightManager{

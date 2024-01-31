@@ -33,7 +33,6 @@ class TextThemeExtension
   });
   static const baseTextStyle = TextStyle(
     fontFamily: 'iransans_fa',
-    package: 'component_library',
   );
   factory TextThemeExtension.light() => TextThemeExtension(
     mobileBold16: baseTextStyle.copyWith(
