@@ -2,11 +2,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:formz/formz.dart';
 
-class PasswordRepeated extends FormzInput<String, PasswordRepeatValidationError> with EquatableMixin {
+class PasswordRepeat extends FormzInput<String, PasswordRepeatValidationError> with EquatableMixin {
 
-  const PasswordRepeated.pure({String value = '', this.newPassword = ''}) : super.pure(value);
+  const PasswordRepeat.pure({String value = '', this.newPassword = ''}) : super.pure(value);
 
-  const PasswordRepeated.dirty(String value, {required this.newPassword}) : super.dirty(value);
+  const PasswordRepeat.dirty(String value, {required this.newPassword}) : super.dirty(value);
 
   final String newPassword;
 

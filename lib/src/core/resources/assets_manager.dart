@@ -18,5 +18,5 @@ class IconManager {
   static const IconData relief = Icons.miscellaneous_services;
   static const IconData survey = Icons.fact_check_rounded;
   static const IconData profile = Icons.person;
-  static const IconData menu = Icons.menu_rounded;
+  static const IconData chevron = Icons.chevron_left_rounded;
 }
