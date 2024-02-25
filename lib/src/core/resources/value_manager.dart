@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 class AppMargin{
   static const double m2 = 2.0;
   static const double m8 = 8.0;
@@ -51,6 +53,7 @@ class AppSize{
   static const double s300 = 300.0;
 }
 
+@immutable
 class DurationConstant{
   static const int d100 = 100;
   static const int d500 = 500;

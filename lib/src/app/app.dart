@@ -1,7 +1,7 @@
 import 'package:book_store/src/routing/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'core/resources/resources.dart';
+import '../core/resources/resources.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
