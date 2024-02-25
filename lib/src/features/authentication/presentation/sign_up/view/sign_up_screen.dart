@@ -20,7 +20,6 @@ class SignInScreen extends StatelessWidget {
             maxHeight: MediaQuery.of(context).size.height,
             maxWidth: MediaQuery.of(context).size.width,
           ),
-          child: ,
         ),
       ),
     );
