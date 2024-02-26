@@ -1,6 +1,30 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import '../../widgets/widgets.dart';
 
+
+
+extension SizeContext on BuildContext {
+
+  /// Returns same as MediaQuery.of(context)
+  MediaQueryData get mq => MediaQuery.of(this);
+
+  /// Returns same as MediaQuery.of(context).size
+  Size get sizePx => mq.size;
+
+  /// Returns same as MediaQuery.of(context).size.width
+  double get widthPx => sizePx.width;
+
+  /// Returns same as MediaQuery.of(context).height
+  double get heightPx => sizePx.height;
+
+  /// Returns diagonal screen pixels
+  double get diagonalPx {
+    final Size size = sizePx;
+    return sqrt((size.width * size.width) + (size.height * size.height));
+  }
+}
 
 
 extension ContextExtension on BuildContext {
