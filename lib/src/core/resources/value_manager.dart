@@ -2,6 +2,32 @@ import 'package:flutter/material.dart';
 
 
 @immutable
+class AppStyle {
+  AppStyle({Size? screenSize}) {
+    if (screenSize == null) {
+      scale = 1;
+      return;
+    }
+    final shortestSide = screenSize.shortestSide;
+    const tabletXl = 1000;
+    const tabletLg = 800;
+    if (shortestSide > tabletXl) {
+      scale = 1.2;
+    } else if (shortestSide > tabletLg) {
+      scale = 1.1;
+    } else {
+      scale = 1;
+    }
+  }
+
+
+  late final double scale;
+
+
+  late final insets = _Insets(scale);
+}
+
+@immutable
 class AppMargin{
   static const double m2 = 2.0;
   static const double m8 = 8.0;
@@ -63,8 +89,8 @@ class AppRadius {
 
 
 @immutable
-class Insets {
-  Insets(this._scale);
+class _Insets {
+  _Insets(this._scale);
   final double _scale;
 
   late final double xxs = 4 * _scale;
