@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:book_store/src//core/resources/resources.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
-import '../full_screen_keyboard_listener.dart';
+import '../../core/logic/keyboard/full_screen_keyboard_listener.dart';
 import 'circle_icon_button.dart';
 
 class BackBtn extends StatelessWidget {

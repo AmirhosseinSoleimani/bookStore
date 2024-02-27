@@ -18,7 +18,7 @@ class BookStoreScaffold extends StatelessWidget {
     /// listen to the device size
     final mq = MediaQuery.of(context);
     RegisterSingletons.appLogic.handleAppSizeChanged(mq.size);
-    Animate.defaultDuration = _style.times.fast;
+    Animate.defaultDuration = AppTimes().t300;
 
     /// Create a style object
     _style = AppStyle(screenSize: context.sizePx);

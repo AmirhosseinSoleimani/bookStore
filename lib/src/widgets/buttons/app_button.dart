@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:book_store/src/app/app_export.dart';
 import 'package:book_store/src/core/resources/resources.dart';
-import '../app_icons.dart';
 import 'button_press_effect.dart';
 import 'custom_focus_builder.dart';
 
 /// Shared methods across button types
-Widget _buildIcon(BuildContext context, AppIcons icon, {required bool isSecondary, required double? size}) {
+Widget _buildIcon(BuildContext context, IconData icon, {required bool isSecondary, required double? size}) {
   final colorTheme = AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
-    return AppIcon(icon, color: isSecondary ? colorTheme?.colorBlack! : colorTheme?.accent1!, size: size ?? AppSize.s18);
+    return Icon(icon, color: isSecondary ? colorTheme?.colorBlack! : colorTheme?.accent1!, size: size ?? AppSize.s18);
 }
 
 /// The core button that drives all other buttons.
@@ -46,7 +45,7 @@ class AppBtn extends StatelessWidget {
     this.onFocusChanged,
     String? semanticLabel,
     String? text,
-    AppIcons? icon,
+    IconData? icon,
     double? iconSize,
   })  : child = null,
         circular = false {

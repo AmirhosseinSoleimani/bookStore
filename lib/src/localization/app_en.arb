@@ -2,5 +2,13 @@
     "getStarted": "Get Started!",
     "getStartedText": "Join us now and start Your Journey.",
     "createAccount": "Create an account",
-    "signIn": "Sign in to your account"
+    "signIn": "Sign in to your account",
+    "close": "close",
+    "back": "back",
+    "page": "page",
+    "previous": "Previous",
+    "next": "next",
+    "wonderfulLibrary": "Wonderful Library",
+    "enterTheApp": "Enter the app"
+
 }

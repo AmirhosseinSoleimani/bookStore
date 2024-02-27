@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorThemeExtension
-    extends ThemeExtension<ColorThemeExtension> {
+class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
   final Color? darkBrown,
       primaryColor,
       colorSharpOrangeLight,
@@ -17,6 +16,11 @@ class ColorThemeExtension
       darkThemeBoxBackgroundLight,
       colorGreyBox,
       whiteColor,
+      offWhite,
+      greyStrong,
+      greyMedium,
+      accent1,
+      accent2,
       redColor,
       transparentColor;
 
@@ -38,51 +42,68 @@ class ColorThemeExtension
       required this.whiteColor,
       required this.redColor,
       required this.transparentColor,
-      });
+      required this.offWhite,
+      required this.greyStrong,
+      required this.greyMedium,
+      required this.accent1,
+      required this.accent2});
 
   @override
-  ColorThemeExtension copyWith(
-      {final Color? darkBrown,
-      primaryColor,
-      colorSharpOrangeLight,
-      colorSharpOrange2,
-      colorSharpOrangeDarker,
-      colorSharpOrangeDarkFont,
-      colorBlack,
-      darkThemePrimary,
-      darkThemePrimaryLight,
-      darkThemeBackgroundLight,
-      darkThemeBoxBackground,
-      darkThemeBoxBackgroundDark,
-      darkThemeBoxBackgroundLight,
-      colorGreyBox,
-      redColor,
-      whiteColor,
-      transparentColor,}) {
+  ColorThemeExtension copyWith({
+    final Color? darkBrown,
+    primaryColor,
+    colorSharpOrangeLight,
+    colorSharpOrange2,
+    colorSharpOrangeDarker,
+    colorSharpOrangeDarkFont,
+    colorBlack,
+    darkThemePrimary,
+    darkThemePrimaryLight,
+    darkThemeBackgroundLight,
+    darkThemeBoxBackground,
+    darkThemeBoxBackgroundDark,
+    darkThemeBoxBackgroundLight,
+    colorGreyBox,
+    redColor,
+    offWhite,
+    greyStrong,
+    greyMedium,
+    accent1,
+    accent2,
+    whiteColor,
+    transparentColor,
+  }) {
     return ColorThemeExtension(
-      darkBrown: darkBrown ?? this.darkBrown,
-      primaryColor: primaryColor ?? this.primaryColor,
-      colorSharpOrangeLight:
-          colorSharpOrangeLight ?? this.colorSharpOrangeLight,
-      colorSharpOrange2: colorSharpOrange2 ?? this.colorSharpOrange2,
-      colorSharpOrangeDarker:
-          colorSharpOrangeDarker ?? this.colorSharpOrangeDarker,
-      colorSharpOrangeDarkFont:
-          colorSharpOrangeDarkFont ?? this.colorSharpOrangeDarkFont,
-      colorBlack: colorBlack ?? this.colorBlack,
-      darkThemePrimary: darkThemePrimary ?? this.darkThemePrimary,
-      darkThemePrimaryLight:
-          darkThemePrimaryLight ?? this.darkThemePrimaryLight,
-      whiteColor: whiteColor ?? this.whiteColor,
-      colorGreyBox: colorGreyBox ?? this.colorGreyBox,
-      darkThemeBackgroundLight:
-          darkThemeBackgroundLight ?? this.darkThemeBackgroundLight,
-      darkThemeBoxBackgroundDark: darkThemeBoxBackgroundDark ?? this.darkThemeBoxBackgroundDark,
-      darkThemeBoxBackground: darkThemeBoxBackground ?? this.darkThemeBoxBackground,
-      darkThemeBoxBackgroundLight: darkThemeBoxBackgroundLight ?? this.darkThemeBoxBackgroundLight,
-      redColor: redColor ?? this.redColor,
-      transparentColor: transparentColor ?? this.transparentColor
-    );
+        darkBrown: darkBrown ?? this.darkBrown,
+        primaryColor: primaryColor ?? this.primaryColor,
+        colorSharpOrangeLight:
+            colorSharpOrangeLight ?? this.colorSharpOrangeLight,
+        colorSharpOrange2: colorSharpOrange2 ?? this.colorSharpOrange2,
+        colorSharpOrangeDarker:
+            colorSharpOrangeDarker ?? this.colorSharpOrangeDarker,
+        colorSharpOrangeDarkFont:
+            colorSharpOrangeDarkFont ?? this.colorSharpOrangeDarkFont,
+        colorBlack: colorBlack ?? this.colorBlack,
+        darkThemePrimary: darkThemePrimary ?? this.darkThemePrimary,
+        darkThemePrimaryLight:
+            darkThemePrimaryLight ?? this.darkThemePrimaryLight,
+        whiteColor: whiteColor ?? this.whiteColor,
+        colorGreyBox: colorGreyBox ?? this.colorGreyBox,
+        darkThemeBackgroundLight:
+            darkThemeBackgroundLight ?? this.darkThemeBackgroundLight,
+        darkThemeBoxBackgroundDark:
+            darkThemeBoxBackgroundDark ?? this.darkThemeBoxBackgroundDark,
+        darkThemeBoxBackground:
+            darkThemeBoxBackground ?? this.darkThemeBoxBackground,
+        darkThemeBoxBackgroundLight:
+            darkThemeBoxBackgroundLight ?? this.darkThemeBoxBackgroundLight,
+        redColor: redColor ?? this.redColor,
+        offWhite: offWhite ?? this.offWhite,
+        greyStrong: greyStrong ?? this.greyStrong,
+        greyMedium: greyMedium ?? this.greyMedium,
+        accent1: accent1 ?? this.accent1,
+        accent2: accent2 ?? this.accent2,
+        transparentColor: transparentColor ?? this.transparentColor);
   }
 
   factory ColorThemeExtension.light() => ColorThemeExtension(
@@ -92,7 +113,7 @@ class ColorThemeExtension
         colorSharpOrange2: _convertColor('#FF4D00'),
         colorSharpOrangeDarker: _convertColor('#F2600A'),
         colorSharpOrangeDarkFont: _convertColor('#8B3300'),
-        colorBlack: _convertColor('#000000'),
+        colorBlack: _convertColor('#1E1B18'),
         darkThemePrimary: _convertColor('#2E3D3D'),
         darkThemePrimaryLight: _convertColor('#8E8E8E'),
         darkThemeBackgroundLight: _convertColor('#F5F5FA'),
@@ -102,6 +123,11 @@ class ColorThemeExtension
         darkThemeBoxBackground: _convertColor('#e6e6e6'),
         darkThemeBoxBackgroundLight: _convertColor('#f5f5f5'),
         redColor: _convertColor('#ff1414'),
+        offWhite: _convertColor('#8ECE5'),
+        greyStrong: _convertColor('#272625'),
+        greyMedium: _convertColor('#9D9995'),
+        accent1: _convertColor('#E4935D'),
+        accent2: _convertColor('#BEABA1'),
         transparentColor: Colors.transparent,
       );
 
@@ -116,8 +142,7 @@ class ColorThemeExtension
     }
 
     return ColorThemeExtension(
-      darkBrown:
-          Color.lerp(darkBrown, other.darkBrown, t),
+      darkBrown: Color.lerp(darkBrown, other.darkBrown, t),
       primaryColor: Color.lerp(primaryColor, other.primaryColor, t),
       colorSharpOrangeLight:
           Color.lerp(colorSharpOrangeLight, other.colorSharpOrangeLight, t),
@@ -137,14 +162,17 @@ class ColorThemeExtension
           darkThemeBackgroundLight, other.darkThemeBackgroundLight, t),
       darkThemeBoxBackgroundDark: Color.lerp(
           darkThemeBoxBackgroundDark, other.darkThemeBoxBackgroundDark, t),
-      darkThemeBoxBackground: Color.lerp(
-          darkThemeBoxBackground, other.darkThemeBoxBackground, t),
+      darkThemeBoxBackground:
+          Color.lerp(darkThemeBoxBackground, other.darkThemeBoxBackground, t),
       darkThemeBoxBackgroundLight: Color.lerp(
           darkThemeBoxBackgroundLight, other.darkThemeBoxBackgroundLight, t),
-      redColor: Color.lerp(
-          redColor, other.redColor, t),
-      transparentColor: Color.lerp(
-          transparentColor, other.transparentColor, t),
+      redColor: Color.lerp(redColor, other.redColor, t),
+      offWhite: Color.lerp(offWhite, other.offWhite, t),
+      greyStrong: Color.lerp(greyStrong, other.greyStrong, t),
+      greyMedium: Color.lerp(greyMedium, other.greyMedium, t),
+      accent1: Color.lerp(accent1, other.accent1, t),
+      accent2: Color.lerp(accent2, other.accent2, t),
+      transparentColor: Color.lerp(transparentColor, other.transparentColor, t),
     );
   }
 }

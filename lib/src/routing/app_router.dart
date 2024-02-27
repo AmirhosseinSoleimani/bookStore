@@ -1,6 +1,8 @@
 import 'package:book_store/src/features/authentication/presentation/starter_page/view/starter_page_screen.dart';
+import 'package:book_store/src/features/intro/intro_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
+
 
 class Navigation {
   static GoRouter goRouter(BuildContext context) {
@@ -15,7 +17,7 @@ class Navigation {
                     key: state.pageKey,
                     transitionDuration: Duration.zero,
                     transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
-                    child: const StarterPageScreen(),
+                    child: const IntroScreen(),
                     );
             }
           )

@@ -80,11 +80,11 @@ class AppSize{
 
 @immutable
 class AppRadius {
-  static const double s4 = 4.0;
-  static const double s6 = 6.0;
-  static const double s8 = 8.0;
-  static const double s16 = 16.0;
-  static const double s32 = 32.0;
+  static const double r4 = 4.0;
+  static const double r6 = 6.0;
+  static const double r8 = 8.0;
+  static const double r16 = 16.0;
+  static const double r32 = 32.0;
 }
 
 
