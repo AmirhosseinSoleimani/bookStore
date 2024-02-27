@@ -1,5 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+
+@immutable
 class AppMargin{
   static const double m2 = 2.0;
   static const double m8 = 8.0;
@@ -10,6 +12,7 @@ class AppMargin{
   static const double m20 = 20.0;
 }
 
+@immutable
 class AppPadding{
   static const double p0 = 0.0;
   static const double p2 = 2.0;
@@ -25,6 +28,7 @@ class AppPadding{
   static const double p24 = 24.0;
 }
 
+@immutable
 class AppSize{
   static const double s0 = 0;
   static const double s1 = 1.0;
@@ -46,17 +50,37 @@ class AppSize{
   static const double s60 = 60.0;
   static const double s80 = 80.0;
   static const double s120 = 120.0;
-  static const double s150 = 150.0;
-  static const double s200 = 200.0;
-  static const double s220 = 220.0;
-  static const double s280 = 280.0;
-  static const double s300 = 300.0;
 }
 
 @immutable
-class DurationConstant{
-  static const int d100 = 100;
-  static const int d500 = 500;
-  static const int d800 = 800;
-  static const int d3000 = 3000;
+class AppRadius {
+  static const double s4 = 4.0;
+  static const double s6 = 6.0;
+  static const double s8 = 8.0;
+  static const double s16 = 16.0;
+  static const double s32 = 32.0;
+}
+
+
+@immutable
+class Insets {
+  Insets(this._scale);
+  final double _scale;
+
+  late final double xxs = 4 * _scale;
+  late final double xs = 8 * _scale;
+  late final double sm = 16 * _scale;
+  late final double md = 24 * _scale;
+  late final double lg = 32 * _scale;
+  late final double xl = 48 * _scale;
+  late final double xxl = 56 * _scale;
+  late final double offset = 80 * _scale;
+}
+
+@immutable
+class AppTimes {
+  final Duration t300 = const Duration(milliseconds: 300);
+  final Duration t600 = const Duration(milliseconds: 600);
+  final Duration t900 = const Duration(milliseconds: 900);
+  final Duration t200 = const Duration(milliseconds: 200);
 }
