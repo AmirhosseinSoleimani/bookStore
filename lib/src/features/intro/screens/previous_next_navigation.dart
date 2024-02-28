@@ -3,9 +3,9 @@ import 'package:book_store/src/core/resources/assets_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../../../core/logic/common/platform_info.dart';
-import '../../../core/logic/keyboard/full_screen_keyboard_listener.dart';
-import '../../../widgets/buttons/buttons.dart';
+import 'package:book_store/src/core/logic/common/platform_info.dart';
+import 'package:book_store/src/core/logic/keyboard/full_screen_keyboard_listener.dart';
+import 'package:book_store/src/widgets/widgets_export.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 

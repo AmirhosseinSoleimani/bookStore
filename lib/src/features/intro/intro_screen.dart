@@ -1,25 +1,25 @@
-import 'package:book_store/src/app/app_export.dart';
-import 'package:book_store/src/app/register_singletons.dart';
+import 'package:book_store/src/core/extensions/extensions.dart';
 import 'package:book_store/src/core/logic/common/platform_info.dart';
 import 'package:book_store/src/core/resources/resources.dart';
-import 'package:book_store/src/features/intro/domain/intro_size_model.dart';
-import 'package:book_store/src/features/intro/domain/page_data_entity.dart';
+import 'package:book_store/src/features/authentication/presentation/starter_page/view/starter_page_screen.dart';
+import 'package:book_store/src/features/intro/domain/intro_data_model.dart';
 import 'package:book_store/src/features/intro/screens/book_store_logo.dart';
 import 'package:book_store/src/features/intro/screens/page_data.dart';
 import 'package:book_store/src/features/intro/screens/page_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
-import '../../core/logic/app_haptics.dart';
-import '../../widgets/animations/app_page_indicator.dart';
-import '../../widgets/animations/gradient_container.dart';
-import '../../widgets/buttons/buttons.dart';
-import '../../widgets/extra_align.dart';
-import '../../widgets/text/text.dart';
+import 'package:go_router/go_router.dart';
+import 'package:book_store/src/core/logic/app_haptics.dart';
+import 'package:book_store/src/widgets/animations/app_page_indicator.dart';
+import 'package:book_store/src/widgets/animations/gradient_container.dart';
+import 'package:book_store/src/widgets/buttons/buttons.dart';
+import 'package:book_store/src/widgets/extra_align.dart';
+import 'package:book_store/src/widgets/text/text.dart';
 import 'screens/previous_next_navigation.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
 class IntroScreen extends StatefulWidget {
+  static const introPageName = '/intro_page';
   const IntroScreen({super.key});
 
   @override
@@ -27,23 +27,17 @@ class IntroScreen extends StatefulWidget {
 }
 
 class _IntroScreenState extends State<IntroScreen> {
-
-
-  static List<PageDataEntity> pageData = [];
-
-  late final PageController _pageController = PageController()
-    ..addListener(_handlePageChanged);
+  late final PageController _pageController = PageController()..addListener(_handlePageChanged);
   late final ValueNotifier<int> _currentPage = ValueNotifier(0)
     ..addListener(() => setState(() {}));
 
-  bool get _isOnLastPage => _currentPage.value.round() == pageData.length - 1;
+  bool get _isOnLastPage => _currentPage.value.round() == IntroDataModel.pageData.length - 1;
 
   bool get _isOnFirstPage => _currentPage.value.round() == 0;
 
   void _handleIntroCompletePressed() {
-    if (_currentPage.value == pageData.length - 1) {
-      // context.go(ScreenPaths.home);
-      // settingsLogic.hasCompletedOnboarding.value = true;
+    if (_currentPage.value == IntroDataModel.pageData.length - 1) {
+      context.go(StarterPageScreen.starterPageName);
     }
   }
 
@@ -76,23 +70,9 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colorTheme = AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
-    final textTheme = AppTheme.of(context).materialThemeData.extension<TextThemeExtension>();
-    pageData = [
-      const PageDataEntity('Journey to the past',
-          'Navigate the intersection of time, art, and culture.', 'camel', '1'),
-      const PageDataEntity(
-          'Explore places',
-          'Uncover remarkable human-made structures from around the world.',
-          'petra',
-          '2'),
-      const PageDataEntity(
-          'Discover artifacts',
-          'Learn about cultures throughout time by examining things they left behind.',
-          'statue',
-          '3'),
-    ];
-    final List<Widget> pages = pageData.map((e) => PageData(data: e)).toList();
+    final colorTheme =
+        AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
+    final List<Widget> pages = IntroDataModel.pageData.map((e) => PageData(data: e)).toList();
     return DefaultTextColor(
       color: colorTheme!.offWhite!,
       child: ColoredBox(
@@ -127,22 +107,21 @@ class _IntroScreenState extends State<IntroScreen> {
                       ),
                     ),
                   ),
-                  IgnorePointer(
-                    ignoringSemantics: false,
+                  ExcludeSemantics(
                     child: Column(children: [
                       const Spacer(),
                       // logo:
                       Semantics(
                         header: true,
                         child: Container(
-                          height: IntroSizeModel.logoHeight,
+                          height: IntroDataModel.logoHeight,
                           alignment: Alignment.center,
                           child: const BookStoreLogo(),
                         ),
                       ),
                       SizedBox(
-                        height: IntroSizeModel.imageSize,
-                        width: IntroSizeModel.imageSize,
+                        height: IntroDataModel.imageSize,
+                        width: IntroDataModel.imageSize,
                         child: ValueListenableBuilder<int>(
                           valueListenable: _currentPage,
                           builder: (_, value, __) {
@@ -150,36 +129,41 @@ class _IntroScreenState extends State<IntroScreen> {
                               duration: AppTimes().t900,
                               child: KeyedSubtree(
                                 key: ValueKey(value),
-                                child: PageImage(data: pageData[value]),
+                                child: PageImage(data: IntroDataModel.pageData[value]),
                               ),
                             );
                           },
                         ),
                       ),
-                      const SizedBox(
-                        height: IntroSizeModel.textHeight,
-                      ),
+                      IntroDataModel.textHeight.heightSizeBox(),
                       Container(
-                        height: IntroSizeModel.pageIndicatorHeight,
+                        height: IntroDataModel.pageIndicatorHeight,
                         alignment: const Alignment(0.0, 0.0),
                         child: AppPageIndicator(
-                            count: pageData.length, controller: _pageController, color: colorTheme.offWhite),
+                            count: IntroDataModel.pageData.length,
+                            controller: _pageController,
+                            color: colorTheme.whiteColor),
                       ),
-                      const Spacer(flex: 2,),
+                      const Spacer(
+                        flex: 2,
+                      ),
                     ]),
                   ),
                   _buildHzGradientOverlay(left: true, context: context),
                   _buildHzGradientOverlay(context: context),
-                  if(PlatformInfo.isMobile) ...[
+                  if (PlatformInfo.isMobile) ...[
                     Positioned(
-                        right: RegisterSingletons.$styles.insets.lg,
-                        bottom: RegisterSingletons.$styles.insets.lg,
-                        child: _buildFinishBtn(context, _currentPage, pageData, _handleIntroCompletePressed),
+                      right: AppStyle().insets.lg,
+                      bottom: AppStyle().insets.lg,
+                      child: _buildFinishBtn(context, _currentPage, IntroDataModel.pageData,
+                          _handleIntroCompletePressed),
                     ),
                     BottomCenter(
                       child: Padding(
-                        padding: EdgeInsets.only(bottom: RegisterSingletons.$styles.insets.lg),
-                        child: _buildNavText(context, _currentPage, pageData, _isOnLastPage, _handleNavTextSemanticTap),
+                        padding: EdgeInsets.only(
+                            bottom: AppStyle().insets.lg),
+                        child: _buildNavText(context, _currentPage, IntroDataModel.pageData,
+                            _isOnLastPage, _handleNavTextSemanticTap),
                       ),
                     )
                   ]
@@ -193,7 +177,10 @@ class _IntroScreenState extends State<IntroScreen> {
   }
 }
 
-Widget _buildNavText(BuildContext context, ValueNotifier<int> currentPage, List pageData, bool isOnLastPage, VoidCallback handleNavTextSemanticTap) {
+Widget _buildNavText(BuildContext context, ValueNotifier<int> currentPage,
+    List pageData, bool isOnLastPage, VoidCallback handleNavTextSemanticTap) {
+  final textTheme =
+  AppTheme.of(context).materialThemeData.extension<TextThemeExtension>();
   return ValueListenableBuilder(
       valueListenable: currentPage,
       builder: (_, pageIndex, __) {
@@ -201,55 +188,55 @@ Widget _buildNavText(BuildContext context, ValueNotifier<int> currentPage, List 
           opacity: pageIndex == pageData.length - 1 ? 0 : 1,
           duration: AppTimes().t300,
           child: Semantics(
-            onTapHint: 'Navigate',
+            onTapHint: AppLocalizations.of(context).navigate,
             onTap: isOnLastPage ? null : handleNavTextSemanticTap,
-            child: const Text('Swipe left to continue'),
+            child: (AppLocalizations.of(context).swipeToContinue).toLabel(textStyle: textTheme!.mobileBold16),
           ),
         );
       });
 }
 
-
-Widget _buildFinishBtn(BuildContext context, ValueNotifier<int> currentPage, List pageData, VoidCallback handleIntroCompletePressed) {
-  final colorTheme = AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
+Widget _buildFinishBtn(BuildContext context, ValueNotifier<int> currentPage,
+    List pageData, VoidCallback handleIntroCompletePressed) {
+  final colorTheme =
+      AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
   return ValueListenableBuilder<int>(
       valueListenable: currentPage,
       builder: (_, pageIndex, __) {
         return AnimatedOpacity(
-            opacity: pageIndex == pageData.length - 1 ? 1 : 0,
-            duration: AppTimes().t300,
+          opacity: pageIndex == pageData.length - 1 ? 1 : 0,
+          duration: AppTimes().t300,
           child: CircleIconButton(
-            icon: IconManager.next,
-            bgColor: colorTheme!.accent1!,
-            onPressed: handleIntroCompletePressed,
-            semanticLabel: AppLocalizations.of(context).enterTheApp
-          ),
+              color: colorTheme!.whiteColor,
+              icon: IconManager.next,
+              bgColor: colorTheme.accent1!,
+              onPressed: handleIntroCompletePressed,
+              semanticLabel: AppLocalizations.of(context).enterTheApp),
         );
       });
 }
 
-
-Widget _buildHzGradientOverlay({bool left = false, required BuildContext context}) {
-  final colorTheme = AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
+Widget _buildHzGradientOverlay(
+    {bool left = false, required BuildContext context}) {
+  final colorTheme =
+      AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
   return Align(
-    alignment: Alignment(left? -1.0 : 1.0, 0.0),
+    alignment: Alignment(left ? -1.0 : 1.0, 0.0),
     child: FractionallySizedBox(
       widthFactor: 0.5,
       child: Padding(
         padding: EdgeInsets.only(left: left ? 0 : 200, right: left ? 200 : 0),
         child: Transform.scale(
           scaleX: left ? -1 : 1,
-          child: HzGradient(
-            [colorTheme!.colorBlack!.withOpacity(0),
-              colorTheme.colorBlack!,
-            ],
-            const [0,.2]
-          ),
+          child: HzGradient([
+            colorTheme!.colorBlack!.withOpacity(0),
+            colorTheme.colorBlack!,
+          ], const [
+            0,
+            .2
+          ]),
         ),
       ),
     ),
   );
 }
-
-
-

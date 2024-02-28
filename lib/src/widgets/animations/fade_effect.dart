@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-
 /// It defaults to `begin=0, end=1`.
 @immutable
 class FadeEffect extends Effect<double> {

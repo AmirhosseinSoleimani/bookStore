@@ -34,8 +34,6 @@ flutter:
     - assets/authentication/images/
     - assets/app_icon/
     - assets/images/_common/
-    - assets/images/_common/icons/
-    - assets/images/_common/texture/
   fonts:
     - family: "iransans_fa"
       fonts:

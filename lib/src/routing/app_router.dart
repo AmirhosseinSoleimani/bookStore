@@ -7,11 +7,11 @@ import 'package:go_router/go_router.dart';
 class Navigation {
   static GoRouter goRouter(BuildContext context) {
     return GoRouter(
-        initialLocation: StarterPageScreen.starterPageName,
+        initialLocation: IntroScreen.introPageName,
         routes: [
           GoRoute(
-              path: StarterPageScreen.starterPageName,
-              name: StarterPageScreen.starterPageName,
+              path: IntroScreen.introPageName,
+              name: IntroScreen.introPageName,
             pageBuilder: (BuildContext context, GoRouterState state) {
                 return CustomTransitionPage(
                     key: state.pageKey,
@@ -20,7 +20,19 @@ class Navigation {
                     child: const IntroScreen(),
                     );
             }
-          )
+          ),
+          GoRoute(
+              path: StarterPageScreen.starterPageName,
+              name: StarterPageScreen.starterPageName,
+              pageBuilder: (BuildContext context, GoRouterState state) {
+                return CustomTransitionPage(
+                  key: state.pageKey,
+                  transitionDuration: Duration.zero,
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+                  child: const StarterPageScreen(),
+                );
+              }
+          ),
         ],
     );
   }

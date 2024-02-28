@@ -9,6 +9,8 @@
     "previous": "Previous",
     "next": "next",
     "wonderfulLibrary": "Wonderful Library",
-    "enterTheApp": "Enter the app"
+    "enterTheApp": "Enter the app",
+    "navigate": "Navigate",
+    "swipeToContinue": "Swipe left to continue"
 
 }

@@ -21,7 +21,7 @@ class BookStoreLogo extends StatelessWidget {
         ),
         AppStyle().insets.xs.widthSizeBox(),
         StaticTextScale(
-          child: (AppLocalizations.of(context).wonderfulLibrary).toLabel(textStyle: textTheme!.mobileBold16),
+          child: (AppLocalizations.of(context).wonderfulLibrary).toLabel(textStyle: textTheme!.mobileBold16.copyWith(color: colorTheme.whiteColor, fontSize: AppSize.s24)),
         )
       ],
     );
