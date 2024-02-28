@@ -1,7 +1,9 @@
 import 'package:book_store/src/core/extensions/extensions.dart';
 import 'package:book_store/src/core/resources/resources.dart';
+import 'package:book_store/src/features/features.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../widgets/button_widget.dart';
 
@@ -61,7 +63,10 @@ class StarterPageScreen extends StatelessWidget {
                     color: colorTheme.primaryColor,
                     fontSize: AppSize.s18
                 ),
-                onTap: () {  },
+                onTap: () {
+                  context.go
+                    (HomeScreen.homePageName);
+                },
               ),
             ],
           ).paddingSymmetric(horizontal: AppPadding.p12, vertical: AppPadding.p16),

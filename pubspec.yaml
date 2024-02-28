@@ -20,18 +20,28 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   get_it: ^7.6.7
   flutter_animate: ^4.5.0
+  smooth_page_indicator: ^1.1.0
+  package_info_plus: ^5.0.1
+  freezed_annotation: ^2.4.1
+  flutter_bloc: ^8.1.4
+
+  bottom_navigation:
+    path: packages/bottom_navigation
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   build_runner: ^2.4.8
+
+
 flutter:
   generate: true
   uses-material-design: true
   assets:
     - assets/authentication/images/
     - assets/app_icon/
+    - assets/images/_common/
   fonts:
     - family: "iransans_fa"
       fonts:

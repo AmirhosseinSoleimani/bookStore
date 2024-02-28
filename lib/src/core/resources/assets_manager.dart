@@ -19,4 +19,7 @@ class IconManager {
   static const IconData survey = Icons.fact_check_rounded;
   static const IconData profile = Icons.person;
   static const IconData chevron = Icons.chevron_left_rounded;
+  static const IconData previous = Icons.arrow_back_rounded;
+  static const IconData next = Icons.arrow_forward_rounded;
+  static const IconData close = Icons.close;
 }
