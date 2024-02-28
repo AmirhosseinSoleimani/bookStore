@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../domain/page_data_entity.dart';
+import '../../domain/page_data_entity.dart';
 
 
 class PageImage extends StatelessWidget {

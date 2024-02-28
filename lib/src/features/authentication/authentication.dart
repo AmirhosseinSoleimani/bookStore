@@ -1,0 +1,1 @@
+export 'presentation/starter_page/view/starter_page_screen.dart';

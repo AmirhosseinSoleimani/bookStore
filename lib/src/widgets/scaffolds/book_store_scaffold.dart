@@ -1,4 +1,4 @@
-import 'package:book_store/src/features/common/controls/app_scroll_behavior.dart';
+import 'package:book_store/src/core/logic/controls/app_scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:book_store/src/core/extensions/extensions.dart';
 import 'package:book_store/src/core/resources/resources.dart';
