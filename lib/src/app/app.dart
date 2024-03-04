@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         locale: const Locale("en", "EN"),
         debugShowCheckedModeBanner: false,
         theme: _lightTheme.materialThemeData,
-        routerConfig: Navigation.goRouter(context),
+        routerConfig: Navigation.routes,
       ),
     );
   }

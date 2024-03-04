@@ -56,3 +56,19 @@ class SvgPictureWidget extends StatelessWidget {
   }
 }
 
+class IconWidget extends StatelessWidget {
+  const IconWidget({super.key, required this.iconData, this.size, this.color});
+  final IconData iconData;
+  final Color? color;
+  final double? size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Icon(
+      iconData,
+      size: size,
+      color: color,
+    );
+  }
+}
+

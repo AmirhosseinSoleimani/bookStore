@@ -1,86 +1,81 @@
+import 'package:book_store/src/core/extensions/extensions.dart';
+import 'package:book_store/src/core/resources/resources.dart';
+import 'package:book_store/src/features/bottom_navigation/presentation/cubit/bottom_navigation_cubit.dart';
 import 'package:bottom_navigation/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import '../cubit/bottom_navigation_cubit.dart';
 
-class BottomNavigationBarScreen extends StatelessWidget {
-  static const bottomNavigationBarPageName = '/';
-  BottomNavigationBarScreen({super.key, required this.navigationShell});
+class BottomNavigationBarScreen extends StatefulWidget {
+  const BottomNavigationBarScreen({super.key, required this.navigationShell});
+
   final StatefulNavigationShell navigationShell;
 
+  @override
+  State<BottomNavigationBarScreen> createState() =>
+      _BottomNavigationBarScreenState();
+}
 
+class _BottomNavigationBarScreenState extends State<BottomNavigationBarScreen> {
   final _controller = BottomController(index: 0);
-  final int maxCount = 4;
+
   @override
   Widget build(BuildContext context) {
+    final colorTheme =
+        AppTheme.of(context).materialThemeData.extension<ColorThemeExtension>();
     return BlocProvider(
       create: (BuildContext context) => BottomNavigationCubit(),
       child: BlocBuilder<BottomNavigationCubit, BottomNavigationState>(
         builder: (BuildContext context, BottomNavigationState state) {
           return Scaffold(
-            body: navigationShell,
+            body: widget.navigationShell,
             extendBody: true,
             bottomNavigationBar: AnimatedBottomBar(
                 bottomController: _controller,
-                color: Colors.white,
                 showLabel: false,
                 removeMargins: false,
                 bottomBarWidth: 500,
                 durationInMilliSeconds: 300,
-                bottomBarItems: const [
+                bottomBarItems: [
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.person,
-                      color: Colors.blueGrey,
-                    ),
-                    activeItem: Icon(
-                      Icons.person,
-                      color: Colors.blueAccent,
-                    ),
+                    inActiveItem: (IconManager.home)
+                        .iconWidget(color: colorTheme!.colorGreyBox),
+                    activeItem: (IconManager.homeFill)
+                        .iconWidget(color: colorTheme.accent1),
+                    itemLabel: 'Page 1',
+                  ),
+                  BottomBarItem(
+                    inActiveItem: (IconManager.book)
+                        .iconWidget(color: colorTheme.colorGreyBox),
+                    activeItem: (IconManager.bookFill)
+                        .iconWidget(color: colorTheme.accent1),
                     itemLabel: 'Page 2',
                   ),
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.star,
-                      color: Colors.blueGrey,
-                    ),
-                    activeItem: Icon(
-                      Icons.star,
-                      color: Colors.blueAccent,
-                    ),
-                    itemLabel: 'Page 2',
-                  ),
-                  ///svg example
-                  BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.home,
-                      color: Colors.blueGrey,
-                    ),
-                    activeItem: Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
+                    inActiveItem: (IconManager.pen)
+                        .iconWidget(color: colorTheme.colorGreyBox),
+                    activeItem: (IconManager.penFill)
+                        .iconWidget(color: colorTheme.accent1),
                     itemLabel: 'Page 3',
                   ),
                   BottomBarItem(
-                    inActiveItem: Icon(
-                      Icons.settings,
-                      color: Colors.blueGrey,
-                    ),
-                    activeItem: Icon(
-                      Icons.settings,
-                      color: Colors.pink,
-                    ),
+                    inActiveItem: (IconManager.person)
+                        .iconWidget(color: colorTheme.colorGreyBox),
+                    activeItem: (IconManager.personFill)
+                        .iconWidget(color: colorTheme.accent1),
                     itemLabel: 'Page 4',
                   ),
                 ],
                 onTap: (index) {
-                  navigationShell.goBranch(
+                  setState(() {});
+                  context
+                      .read<BottomNavigationCubit>()
+                      .updateNavigationIndexState(index);
+                  widget.navigationShell.goBranch(
                     index,
-                    initialLocation: index == navigationShell.currentIndex,
+                    initialLocation:
+                        index == widget.navigationShell.currentIndex,
                   );
-                  context.read<BottomNavigationCubit>().updateNavigationIndexState(index);
                 }),
           );
         },

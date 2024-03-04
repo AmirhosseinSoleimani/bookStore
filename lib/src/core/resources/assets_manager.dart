@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ImageManager {
@@ -12,8 +13,20 @@ class SvgManager {
 
 
 class IconManager {
+
+  // Cupertino Icons
+  static const IconData home = CupertinoIcons.home;
+  static const IconData homeFill = CupertinoIcons.house_fill;
+  static const IconData book = CupertinoIcons.book;
+  static const IconData bookFill = CupertinoIcons.book_fill;
+  static const IconData pen = CupertinoIcons.pencil;
+  static const IconData penFill = CupertinoIcons.pencil;
+  static const IconData person = CupertinoIcons.person;
+  static const IconData personFill = CupertinoIcons.person_fill;
+
+
+
   // Material Icons
-  static const IconData home = Icons.home;
   static const IconData subscription = Icons.shopping_bag;
   static const IconData relief = Icons.miscellaneous_services;
   static const IconData survey = Icons.fact_check_rounded;
