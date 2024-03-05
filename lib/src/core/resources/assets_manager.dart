@@ -23,6 +23,7 @@ class IconManager {
   static const IconData penFill = CupertinoIcons.pencil;
   static const IconData person = CupertinoIcons.person;
   static const IconData personFill = CupertinoIcons.person_fill;
+  static const IconData errorPhoto = CupertinoIcons.photo_fill;
 
 
 
@@ -31,7 +32,8 @@ class IconManager {
   static const IconData relief = Icons.miscellaneous_services;
   static const IconData survey = Icons.fact_check_rounded;
   static const IconData profile = Icons.person;
-  static const IconData chevron = Icons.chevron_left_rounded;
+  static const IconData chevronLeft = Icons.chevron_left_rounded;
+  static const IconData chevronRight = Icons.chevron_right_rounded;
   static const IconData previous = Icons.arrow_back_rounded;
   static const IconData next = Icons.arrow_forward_rounded;
   static const IconData close = Icons.close;
