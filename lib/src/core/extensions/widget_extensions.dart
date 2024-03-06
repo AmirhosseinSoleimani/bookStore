@@ -38,6 +38,10 @@ extension StringExtension on String {
   Widget svgPictureWidget({Color? color,double? width,double? height}) => SvgPictureWidget(path: this,color: color,width: width,height: height);
 }
 
+extension IconDataExtension on IconData {
+  Widget iconWidget({Color? color,double? size}) => IconWidget(iconData: this, color: color, size: size,);
+}
+
 
 extension DoubleExtension on double {
   Widget heightSizeBox() => SizedBox(height: this);

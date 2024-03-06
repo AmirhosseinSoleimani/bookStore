@@ -14,6 +14,8 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
       darkThemeBoxBackground,
       darkThemeBoxBackgroundDark,
       darkThemeBoxBackgroundLight,
+      purple,
+      lightBlue,
       colorGreyBox,
       whiteColor,
       offWhite,
@@ -38,6 +40,8 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
       required this.darkThemeBoxBackgroundDark,
       required this.darkThemeBoxBackground,
       required this.darkThemeBoxBackgroundLight,
+      required this.purple,
+      required this.lightBlue,
       required this.colorGreyBox,
       required this.whiteColor,
       required this.redColor,
@@ -63,6 +67,8 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
     darkThemeBoxBackground,
     darkThemeBoxBackgroundDark,
     darkThemeBoxBackgroundLight,
+    purple,
+    lightBlue,
     colorGreyBox,
     redColor,
     offWhite,
@@ -103,7 +109,10 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
         greyMedium: greyMedium ?? this.greyMedium,
         accent1: accent1 ?? this.accent1,
         accent2: accent2 ?? this.accent2,
-        transparentColor: transparentColor ?? this.transparentColor);
+        transparentColor: transparentColor ?? this.transparentColor,
+        purple: purple ?? this.purple,
+        lightBlue: lightBlue ?? lightBlue,
+    );
   }
 
   factory ColorThemeExtension.light() => ColorThemeExtension(
@@ -128,6 +137,8 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
         greyMedium: _convertColor('#9D9995'),
         accent1: _convertColor('#E4935D'),
         accent2: _convertColor('#BEABA1'),
+        purple: _convertColor('#6463D6'),
+        lightBlue: _convertColor('#2FBFDE'),
         transparentColor: Colors.transparent,
       );
 
@@ -173,6 +184,8 @@ class ColorThemeExtension extends ThemeExtension<ColorThemeExtension> {
       accent1: Color.lerp(accent1, other.accent1, t),
       accent2: Color.lerp(accent2, other.accent2, t),
       transparentColor: Color.lerp(transparentColor, other.transparentColor, t),
+      purple: Color.lerp(purple, other.transparentColor, t),
+      lightBlue: Color.lerp(lightBlue, other.transparentColor, t),
     );
   }
 }

@@ -6,7 +6,7 @@ class BottomController extends ChangeNotifier {
 
   BottomController({this.index = 0});
 
-  jumpTo(int index) {
+  void jumpTo(int index) {
     oldIndex = this.index;
     this.index = index;
     notifyListeners();

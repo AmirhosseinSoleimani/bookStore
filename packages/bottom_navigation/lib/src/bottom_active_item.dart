@@ -9,17 +9,9 @@ class BottomBarActiveItem extends StatelessWidget {
     required this.onTap,
     required this.scrollPosition,
   });
-
-  /// item index
   final int index;
-
-  /// item
   final Widget itemWidget;
-
-  /// Double value to indicate the item position
   final double scrollPosition;
-
-  /// Function called when an item was tapped
   final ValueChanged<int> onTap;
 
   @override

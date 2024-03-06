@@ -16,7 +16,7 @@ class AuthScaffold extends StatelessWidget {
               if(onBackPressed != null) IconButton(
                   onPressed: onBackPressed,
                   icon: const Icon(
-                      IconManager.chevron,
+                      IconManager.chevronLeft,
                   ),
               ),
             ],
