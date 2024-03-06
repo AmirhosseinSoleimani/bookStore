@@ -2,10 +2,7 @@ import 'package:book_store/src/core/extensions/extensions.dart';
 import 'package:book_store/src/core/resources/resources.dart';
 import 'package:book_store/src/features/profile/presentation/screens/bar_chart.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -106,7 +103,38 @@ class _ProfileState extends State<Profile> {
           ),
         ).paddingAll(AppPadding.p18).center,
         ),
-        BarChartComponent()
+        Container(
+            width: double.infinity,
+            height: AppSize.s260,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(AppRadius.r8)),
+              color: colorTheme!.accent2!.withOpacity(0.1)
+            ),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    IconManager.clock.iconWidget(size: AppSize.s24, color: colorTheme.darkBrown),
+                    AppSize.s4.widthSizeBox(),
+                    'Duration'.toLabel(textStyle: textTheme!.mobileBold16.copyWith(fontSize: AppSize.s18, color: colorTheme.darkBrown))
+                  ],
+                ).paddingSymmetric(horizontal: AppPadding.p8),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    '0 min'.toLabel(textStyle: textTheme.mobileBold16.copyWith(fontSize: AppSize.s18, color: colorTheme.darkBrown)),
+                    Column(
+                      children: [
+                        'weeklyAverage'.toLabel(textStyle: textTheme.mobileRegular14.copyWith(color: colorTheme.colorGreyBox)),
+                        '0 min'.toLabel(textStyle: textTheme.mobileBold16.copyWith(fontSize: AppSize.s18, color: colorTheme.darkBrown)),
+                      ],
+                    )
+                  ],
+                ).paddingSymmetric(horizontal: AppPadding.p12),
+                const BarChartComponent().paddingAll(AppPadding.p8),
+              ],
+            ).paddingAll(AppPadding.p8),
+        ).paddingSymmetric(horizontal: AppPadding.p8)
       ],
     );
   }

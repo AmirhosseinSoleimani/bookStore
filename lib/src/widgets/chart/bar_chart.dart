@@ -32,19 +32,19 @@ BarChartGroupData makeGroupData(BuildContext context, Color touchedBarColor, Col
 List<BarChartGroupData> showingGroups({required BuildContext context,required Color touchedBarColor, required Color barBackgroundColor, required int touchedIndex, required Color barColor}) => List.generate(7, (i) {
   switch (i) {
     case 0:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,0, 5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,0, 1, isTouched: i == touchedIndex);
     case 1:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,1, 6.5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,1, 1, isTouched: i == touchedIndex);
     case 2:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,2, 5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor ,barColor: barColor ,2, 1, isTouched: i == touchedIndex);
     case 3:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 3, 7.5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 3, 1, isTouched: i == touchedIndex);
     case 4:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 4, 9, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 4, 1, isTouched: i == touchedIndex);
     case 5:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 5, 11.5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 5, 1, isTouched: i == touchedIndex);
     case 6:
-      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 6, 6.5, isTouched: i == touchedIndex);
+      return makeGroupData(context, touchedBarColor, barBackgroundColor,barColor: barColor , 6, 1, isTouched: i == touchedIndex);
     default:
       return throw Error();
   }

@@ -24,6 +24,7 @@ class IconManager {
   static const IconData person = CupertinoIcons.person;
   static const IconData personFill = CupertinoIcons.person_fill;
   static const IconData errorPhoto = CupertinoIcons.photo_fill;
+  static const IconData clock = CupertinoIcons.clock;
 
 
 
